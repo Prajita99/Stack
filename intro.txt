@@ -1,0 +1,9 @@
+interface InterfaceNmae{ //interface used for overloading
+    getName(); 
+}
+
+class User implements InterfaceNmae{ //we use extends for class and implements for interface
+    getName(){
+
+    }
+}
