@@ -1,0 +1,55 @@
+PM Tools
+    => Jira
+    => Asana
+    => Phabricator
+    => Trello
+Milestones 0   15
+
+Git
+Online Service (Repositories)
+    Github
+    Gitlab
+    Bitbucket
+
+Main Branch 
+    -Branches
+        -Sub-Branches
+            -Leaf
+commits, merge, push
+
+-Automation
+    -3 server(Devops/ CI-CD/ Pipelines)
+        -dev (dec access)
+        -staging (limited access)
+        -production (Online)
+
+
+#### One time commands
+- git init 
+    => This will initialize the empty git repository in our local project
+- git remote add <name> <url> 
+    => Project will be linked in git
+
+//history set
+##### Everytime execute
+a. Push Operation
+
+### Staging 
+
+    ## Tracking add
+    -git add <fileName> //adds only the specific file
+    -git add . //adds all changed files
+
+    ## Commitiing your code
+    - git commit -m "Commit message"
+
+   a. Push Operation
+    - git push <name> <current_branch>
+   b. Pull Operation
+    - git pull <name> <current_branch>
+
+### cloning the project
+    - git clone url
+
+## To create a new branch 
+ - git checkout -b <branchName>
