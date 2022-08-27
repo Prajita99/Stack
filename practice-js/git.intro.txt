@@ -3,7 +3,7 @@ PM Tools
     => Asana
     => Phabricator
     => Trello
-Milestones 0   15
+Milestones 0   15 delivery
 
 Git
 Online Service (Repositories)
@@ -53,3 +53,10 @@ a. Push Operation
 
 ## To create a new branch 
  - git checkout -b <branchName>
+
+ Backlog
+
+ Kanban 7-1- days sprint planning
+ 1 story point = 1 day
+ Board
+ TODO InProgress Testing UAT Done 
