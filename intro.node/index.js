@@ -14,7 +14,7 @@ let user = [{
 
 fs.open(file_name, "w", (err, fp)=>{
     if(err){
-        console.log("Error opening file,"+ err)
+        console.log("Error opening file,"+ err);
     }else{
         let user_string = JSON.stringify(user);
         fs.writeFile(fp, user_string, (error) =>{
@@ -24,5 +24,22 @@ fs.open(file_name, "w", (err, fp)=>{
                 console.log("File written successfully");
             }
         })
+    }
+})
+
+fs.open(file_name, "r", (err, fp)=>{
+    if(err){
+        console.log("Error opening file,"+ err);
+    }else{
+        fs.readFile(fp, {
+            encoding: "utf8"
+        }, (error, data) =>{
+                if(error){
+                    console.log("Error reading file");
+                }
+             else{
+                    console.log(data);
+                }
+            })
     }
 })
