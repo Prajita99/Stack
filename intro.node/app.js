@@ -21,7 +21,7 @@ const app = http.createServer((req, res) => {
     }))
  } else{
         res.end(JSON.stringify({
-            status: 484,
+            status: 404,
             msg: "Not Found"
         }))
     }
