@@ -1,5 +1,6 @@
 const app = require('express');
 const app = express(); 
+const user_routes = require('./user.routes');
 const routes = require("./routes/routes");
 
 // mounting of routes
@@ -69,5 +70,7 @@ app.get('/product/:slug', (req, res) => {
         status: true
     })
 })
+
+app.use('/', user_routes);
 
 module.exports = app;

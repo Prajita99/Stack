@@ -12,3 +12,64 @@ Version : ~2.8.5 ====> 2.8.3 //lts version
 a. Postman
 b. Insomnia
 c. Thunder Client
+
+- Variable name => caps_cade
+- object name => camelCase
+- Model-table => SnakeCase
+- API response => always =>
+    {
+        result: <any>.
+        msg: String|object,
+        status: Boolean
+    }
+
+//E-commerce
+    - Product
+    - Banner
+    - Gateway
+    - User
+    - Role 
+    - CAtegory
+    - Transaction
+    - Logistics
+    - Brand 
+    - Order
+    - Inventory
+
+User
+    - add, update, delete,list, role, 
+    - Dashboard
+        - Order
+Brand
+CAtegory
+Product
+Order
+
+Browse
+CAtegory
+    Cart
+Filter/Search
+Add to cart
+Cart page
+Checkout 
+
+HMS
+ - Customer module
+    - TABLE reserve
+    - Menu browsing
+    - Order Generate
+    - XP calculation
+
+- Kitchen module
+    - Order Check
+    - Processing
+    - Delivered
+
+- Waiter module
+    - Ready Order
+    - Deliver(physical implementation)
+
+- Counter module
+    - Table Check
+        - Order Detail
+    - Payment process
