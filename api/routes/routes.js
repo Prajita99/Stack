@@ -2,6 +2,13 @@ const app = require('express');
 const app = express(); 
 const user_routes = require('./user.routes');
 const routes = require("./routes/routes");
+const brand_route = require("./brand.routes");
+const banner_route = require("./banner.routes");
+const category_route = require("./category.routes");
+const order_route = require("./order.routes");
+const product_route = require("./product.routes");
+
+const loginCheck = require("../app/middleware/auth.middleware");
 
 // mounting of routes
 app.use(routes);
@@ -71,6 +78,34 @@ app.get('/product/:slug', (req, res) => {
     })
 })
 
-app.use('/', user_routes);
+app.use("/user", ((req, res, next) => {
+    req.dir= "/public/uploads/users"
+    next();
+}), user_routes);
+
+app.use("/brand", ((req, res, next) => {
+    req.dir= "/public/uploads/brand"
+    next();
+}), brand_routes);
+
+app.use("/banner", ((req, res, next) => {
+    req.dir = "/public/uploads/banner"
+    next();
+}), banner_routes);
+
+app.use("/category", ((req, res, next) => {
+    req.dir = "/public/uploads/category"
+    next();
+}), category_routes);
+
+app.use("/order", ((req, res, next) => {
+    req.dir = "/public/uploads/order"
+    next();
+}), order_routes);
+
+app.use("/product", ((req, res, next) => {
+    req.dir = "/public/uploads/product"
+    next();
+}), product_routes);
 
 module.exports = app;

@@ -1,10 +1,11 @@
 const express = require("express");
 const app = express();
 const router = express.Router();
+const loginCheck = require('../app/middleware/auth.middleware');
+const UserController = require("../app/controllers/user.controller");
 
-const loginCheck = (req, res, next) => {
-    next();
-}
+const user_ctrl = new UserController();
+
 const isAdmin= (req, res, next) => {
     next();
 }
@@ -13,7 +14,9 @@ const userList = (req, res, next) => {
 }
 //User
 // /user
-router.get("/", loginCheck, isAdmin, userList);
+router.route("/")
+    .get( loginCheck, isAdmin, user_ctrl.userList)
+    .post(user_ctrl.registerUser) 
 
 // (req, res, next) => {
 //     //list all users
@@ -26,21 +29,26 @@ router.get("/", loginCheck, isAdmin, userList);
 // };
 
 
-router.post("/user", (req, res, next) => {
-    //logged in
-    //user register
-    //form data receive
-    //variable
-    //db variable
-    //query
-    //response
-       //res.status(400).json();
-    next({
-        status: 400,
-        msg: {
-            email: "Invalid email"
-        }
-    });
-})
+// router.post("/user", (req, res, next) => {
+//     //logged in
+//     //user register
+//     //form data receive
+//     //variable
+//     //db variable
+//     //query
+//     //response
+//        //res.status(400).json();
+//     next({
+//         status: 400,
+//         msg: {
+//             email: "Invalid email"
+//         }
+//     });
+// })
 
-module.exports = app;
+// router.route('/:id')
+//     .get(getDetail)
+//     .put(updateUser)
+//     .delete(userDelaete)
+
+module.exports = router;
