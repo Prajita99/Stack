@@ -7,11 +7,15 @@ const banner_route = require("./banner.routes");
 const category_route = require("./category.routes");
 const order_route = require("./order.routes");
 const product_route = require("./product.routes");
+const UserController = require("../app/controllers")
+const auth_routes = require("./auth.routes");
 
 const loginCheck = require("../app/middleware/auth.middleware");
 
 // mounting of routes
 app.use(routes);
+
+app.use(auth_routes);
 
 // app.js
 const homeContent = (req, res) => {
@@ -78,34 +82,42 @@ app.get('/product/:slug', (req, res) => {
     })
 })
 
+//user
 app.use("/user", ((req, res, next) => {
     req.dir= "/public/uploads/users"
     next();
 }), user_routes);
 
+//brand
 app.use("/brand", ((req, res, next) => {
     req.dir= "/public/uploads/brand"
     next();
 }), brand_routes);
 
+//banner
 app.use("/banner", ((req, res, next) => {
     req.dir = "/public/uploads/banner"
     next();
 }), banner_routes);
 
+//category
 app.use("/category", ((req, res, next) => {
     req.dir = "/public/uploads/category"
     next();
 }), category_routes);
 
+//order
 app.use("/order", ((req, res, next) => {
     req.dir = "/public/uploads/order"
     next();
 }), order_routes);
 
+//product
 app.use("/product", ((req, res, next) => {
     req.dir = "/public/uploads/product"
     next();
 }), product_routes);
 
 module.exports = app;
+
+

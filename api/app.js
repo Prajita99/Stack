@@ -1,42 +1,19 @@
 const express = require("express");
 const app = express();
+const routes = require("./routes/routes");
 
-app.listen(3005, 'localhost', (err) => {
-    if(err){
-        console.log("Error listening to port");
-    } else{
-        console.log("Listening to port: ", 3005);
-        console.log("Press CTRL+C to end server");
-    }
-})
+app.use(express.json());  //application/json
+app.use(express.urlencoded({extended: false}))
 
-/**
- * Request ====> Middleware ====>Response
- * 
- * adding on features in the core program at any point is called middleware
- * Function in express that takes atleast 3 urls
- *  request
- *  response
- *  Next => next middleware call
- * 
- *  a, Application level middleware
- *  b. Routing level middleware
- *  c. Static middleware
- *  d. Custom middleware
- *  e. Builtin middleware
- *  f. Third party middleware
- *  g. Error handling middleware
- *  - 4 params
- *      - 1st  => error object
- *      - 2nd => request
- *      - 3rd => response
- *      - 4th => next scope
- */
-const router = express.Router();
+//mount
+app.use("/api/v1", routes);
 
-router.use('/', (req, res, next)=>{
-    console.log("here")
-})
+app.use((req, res, next) => {
+    next({
+        status: 404,
+        msg: "Not found"
+    }); //next middleware
+});
 
 //errror handling middleware
 app.use((error, req, res, next)=>{
