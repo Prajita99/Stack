@@ -5,6 +5,7 @@ class AuthController {
     constructor() {
         this.auth_svc = new AuthSErvice();
     }
+
     login = (req, res, next) => {
         //
         let data = req.body;
@@ -21,6 +22,22 @@ class AuthController {
             })
          } 
     }
+
+    register = (req, res, next) => {
+        try{
+        let data = req.body;
+        let validation_msg = this.auth_svc.registerValidate(data);
+    }catch(error){
+            next({
+                status: 422,
+                msg: validation_msg
+            })
+         }
+    }
 }
 
-export default AuthController;
+module.exports= AuthController;
+
+
+
+
