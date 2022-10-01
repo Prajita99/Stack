@@ -1,22 +1,23 @@
 const express = require("express");
 const app = express();
 const router = express.Router();
-const loginCheck = require('../app/middleware/auth.middleware');
+const loginCheck = require("../app/middleware/auth.middleware");
 const UserController = require("../app/controllers/user.controller");
 
 const user_ctrl = new UserController();
 
-const isAdmin= (req, res, next) => {
-    next();
-}
+const isAdmin = (req, res, next) => {
+  next();
+};
 const userList = (req, res, next) => {
-    res.status(400).json(); //controller action
-}
+  res.status(400).json(); //controller action
+};
 //User
 // /user
-router.route("/")
-    .get( loginCheck, isAdmin, user_ctrl.userList)
-    .post(user_ctrl.registerUser) 
+router
+  .route("/")
+  .get(loginCheck, isAdmin, user_ctrl.userList)
+  .post(user_ctrl.registerUser);
 
 // (req, res, next) => {
 //     //list all users
@@ -27,7 +28,6 @@ router.route("/")
 // }, (req, res, next) => {
 //     // finally list users
 // };
-
 
 // router.post("/user", (req, res, next) => {
 //     //logged in

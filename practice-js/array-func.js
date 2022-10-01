@@ -24,19 +24,16 @@ console.log(brands)
 console.log(brands);
 */
 
-let result = brands.slice(0,2);
+let result = brands.slice(0, 2);
 console.log(result);
 
 let product = {
-    name: "iphone12",
-    price: 128000,
-    stock: 5,
-    sold: 10,
-    brand: "apple",
-    Store: "evo store"
-} //this is called key value pair
+  name: "iphone12",
+  price: 128000,
+  stock: 5,
+  sold: 10,
+  brand: "apple",
+  Store: "evo store",
+}; //this is called key value pair
 
 console.log(product.price); // this is how the element in key value pair is accessed
-
-
-

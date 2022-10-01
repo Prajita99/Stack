@@ -1,5 +1,5 @@
 const loginCheck = (req, res, next) => {
-    next();
-}
+  next();
+};
 
 module.exports = loginCheck;
