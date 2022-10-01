@@ -2,44 +2,50 @@ const fs = require("fs");
 
 let file_name = "files/user.json";
 
-let user = [{
+let user = [
+  {
     name: "Prajita Adhikari",
     email: "prajita@test.com",
-    role: "Student"
-},{
+    role: "Student",
+  },
+  {
     name: "Prajita one Adhikari",
     email: "prajitaone@test.com",
-    role: "Teacher"
-}]
+    role: "Teacher",
+  },
+];
 
-fs.open(file_name, "w", (err, fp)=>{
-    if(err){
-        console.log("Error opening file,"+ err);
-    }else{
-        let user_string = JSON.stringify(user);
-        fs.writeFile(fp, user_string, (error) =>{
-            if(error){
-                console.log("File write error");
-            }else{
-                console.log("File written successfully");
-            }
-        })
-    }
-})
+fs.open(file_name, "w", (err, fp) => {
+  if (err) {
+    console.log("Error opening file," + err);
+  } else {
+    let user_string = JSON.stringify(user);
+    fs.writeFile(fp, user_string, (error) => {
+      if (error) {
+        console.log("File write error");
+      } else {
+        console.log("File written successfully");
+      }
+    });
+  }
+});
 
-fs.open(file_name, "r", (err, fp)=>{
-    if(err){
-        console.log("Error opening file,"+ err);
-    }else{
-        fs.readFile(fp, {
-            encoding: "utf8"
-        }, (error, data) =>{
-                if(error){
-                    console.log("Error reading file");
-                }
-             else{
-                    console.log(data);
-                }
-            })
-    }
-})
+fs.open(file_name, "r", (err, fp) => {
+  if (err) {
+    console.log("Error opening file," + err);
+  } else {
+    fs.readFile(
+      fp,
+      {
+        encoding: "utf8",
+      },
+      (error, data) => {
+        if (error) {
+          console.log("Error reading file");
+        } else {
+          console.log(data);
+        }
+      }
+    );
+  }
+});

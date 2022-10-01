@@ -1,13 +1,13 @@
-const app = require('express');
-const app = express(); 
-const user_routes = require('./user.routes');
+const app = require("express");
+const app = express();
+const user_routes = require("./user.routes");
 const routes = require("./routes/routes");
 const brand_route = require("./brand.routes");
 const banner_route = require("./banner.routes");
 const category_route = require("./category.routes");
 const order_route = require("./order.routes");
 const product_route = require("./product.routes");
-const UserController = require("../app/controllers")
+const UserController = require("../app/controllers");
 const auth_routes = require("./auth.routes");
 
 const loginCheck = require("../app/middleware/auth.middleware");
@@ -19,34 +19,36 @@ app.use(auth_routes);
 
 // app.js
 const homeContent = (req, res) => {
-    res.json({ //in json fromat because we're working with APIs
-        result: "Home page content",
-        msg: "Success",
-        status: true
-    })
-}
+  res.json({
+    //in json fromat because we're working with APIs
+    result: "Home page content",
+    msg: "Success",
+    status: true,
+  });
+};
 
-app.use("/about", (req, res)=> {
-    //executes only when your url is /about
-})
+app.use("/about", (req, res) => {
+  //executes only when your url is /about
+});
 
 // url mount
-app.get("/", homeContent); 
-    // res.end()
-    // res.redirect()
-    // res.download()
-    // res.send()
-    // res.sendStatus()
-    // res.render()
-    // res.status()
-    // res.json()
+app.get("/", homeContent);
+// res.end()
+// res.redirect()
+// res.download()
+// res.send()
+// res.sendStatus()
+// res.render()
+// res.status()
+// res.json()
 
-app.post("/", (req, res) => { //get method
-    res.json({ 
-        result: "Home page post content",
-        msg: "Success",
-        status: true
-    })
+app.post("/", (req, res) => {
+  //get method
+  res.json({
+    result: "Home page post content",
+    msg: "Success",
+    status: true,
+  });
 });
 // app.post();
 // app.put();
@@ -55,69 +57,91 @@ app.post("/", (req, res) => { //get method
 // app.use();
 
 app.post("/product/add", (req, res) => {
-    //this action can only be performed by logged in admin user
-    //login chech true
-        //role=>admin
-            //
-    res.status(401).json();
-})
+  //this action can only be performed by logged in admin user
+  //login chech true
+  //role=>admin
+  //
+  res.status(401).json();
+});
 
 app.use((req, res) => {
-    res.status(404).json({
-        msg: "Not Found",
-        result: null,
-        status: false
-    })
-})
+  res.status(404).json({
+    msg: "Not Found",
+    result: null,
+    status: false,
+  });
+});
 
-app.get('/product/:slug', (req, res) => {
-    // let slug = req.params.slug;
-    res.json({
-        result: {
-            param: req.params,
-            query: req.query
-        },
-        msg: "Body",
-        status: true
-    })
-})
+app.get("/product/:slug", (req, res) => {
+  // let slug = req.params.slug;
+  res.json({
+    result: {
+      param: req.params,
+      query: req.query,
+    },
+    msg: "Body",
+    status: true,
+  });
+});
 
 //user
-app.use("/user", ((req, res, next) => {
-    req.dir= "/public/uploads/users"
+app.use(
+  "/user",
+  (req, res, next) => {
+    req.dir = "/public/uploads/users";
     next();
-}), user_routes);
+  },
+  user_routes
+);
 
 //brand
-app.use("/brand", ((req, res, next) => {
-    req.dir= "/public/uploads/brand"
+app.use(
+  "/brand",
+  (req, res, next) => {
+    req.dir = "/public/uploads/brand";
     next();
-}), brand_routes);
+  },
+  brand_routes
+);
 
 //banner
-app.use("/banner", ((req, res, next) => {
-    req.dir = "/public/uploads/banner"
+app.use(
+  "/banner",
+  (req, res, next) => {
+    req.dir = "/public/uploads/banner";
     next();
-}), banner_routes);
+  },
+  banner_routes
+);
 
 //category
-app.use("/category", ((req, res, next) => {
-    req.dir = "/public/uploads/category"
+app.use(
+  "/category",
+  (req, res, next) => {
+    req.dir = "/public/uploads/category";
     next();
-}), category_routes);
+  },
+  category_routes
+);
 
 //order
-app.use("/order", ((req, res, next) => {
-    req.dir = "/public/uploads/order"
+app.use(
+  "/order",
+  (req, res, next) => {
+    req.dir = "/public/uploads/order";
     next();
-}), order_routes);
+  },
+  order_routes
+);
 
 //product
-app.use("/product", ((req, res, next) => {
-    req.dir = "/public/uploads/product"
+app.use(
+  "/product",
+  (req, res, next) => {
+    req.dir = "/public/uploads/product";
     next();
-}), product_routes);
+  },
+  product_routes
+);
 
 module.exports = app;
-
-

@@ -1,1 +1,12 @@
-[{"name":"Prajita Adhikari","email":"prajita@test.com","role":"Student"},{"name":"Prajita one Adhikari","email":"prajitaone@test.com","role":"Teacher"}]
+[
+  {
+    "name": "Prajita Adhikari",
+    "email": "prajita@test.com",
+    "role": "Student"
+  },
+  {
+    "name": "Prajita one Adhikari",
+    "email": "prajitaone@test.com",
+    "role": "Teacher"
+  }
+]

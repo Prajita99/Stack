@@ -1,13 +1,7 @@
-export const functionA = () => {
-
-}
-export const functionB = () => {
-
-}
+export const functionA = () => {};
+export const functionB = () => {};
 export let abc = "test";
-export class TestClass{
-    
-}
+export class TestClass {}
 
 // default export
 // export default{

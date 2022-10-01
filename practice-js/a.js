@@ -1,11 +1,7 @@
-const functionA = () => {
-
-}
-const functionB = () => {
-
-}
+const functionA = () => {};
+const functionB = () => {};
 // ES% =>
 module.exports = {
-    functionA,
-    functionB
-}
+  functionA,
+  functionB,
+};

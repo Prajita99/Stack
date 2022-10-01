@@ -17,28 +17,28 @@
 // import * as abc from "./b";
 // abc.functionA();
 
-//named import 
+//named import
 // import {TestClass, functionA} from "./b";
 // functionA();
 
-//Spread and Rest Operator 
+//Spread and Rest Operator
 let user = {
-    name: "",
-    email: "",
-    address: ""
-}
+  name: "",
+  email: "",
+  address: "",
+};
 
 let user_1 = {
-    ...user,
-    phone: "",
-    role: ""
-}
+  ...user,
+  phone: "",
+  role: "",
+};
 
 // let name = user_1.name;
 // let email = user_1.email;
 
 //object destructuring
-let {email, name, ...left} = user_1; //spread operator used for the rest elements is called rest operators
+let { email, name, ...left } = user_1; //spread operator used for the rest elements is called rest operators
 
 // Template Literals
 // Dear..... Your account has been registered,
